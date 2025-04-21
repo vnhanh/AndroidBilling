@@ -1,22 +1,57 @@
 [versions]
-agp = "8.9.1"
-kotlin = "2.0.21"
+gradle = "8.9.0"
+kotlin = "2.1.10"
 coreKtx = "1.16.0"
+androidx-lifecycle = "2.8.7"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 appcompat = "1.7.0"
 material = "1.12.0"
+#activity = "1.10.1"
+billing = "6.1.0"
+compose-bom = "2025.03.00"
+activity-compose = "1.10.1"
+compose-kotlin-compiler = "1.5.15"
+compose-ui = "1.7.8"
+androidx-activity-ktx="1.10.1"
+lifecycle-viewmodel = "2.8.7"
+firebase-bom = "33.12.0"
+google-services = "4.4.2"
+crashlytics-version = "3.0.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+activity-ktx = { group = "androidx.activity", name ="activity-ktx", version.ref = "androidx-activity-ktx" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-bom" }
+firebase-config-ktx = { module = "com.google.firebase:firebase-config-ktx" }
+#firebase-ktx = { module = "com.google.firebase:firebase-ktx" }
+firebase-messaging = { module = "com.google.firebase:firebase-messaging" }
+kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlin" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+androidx-lifecycle-runtime = { group = "androidx.lifecycle", name ="lifecycle-runtime-ktx", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-viewmodel = { group = "androidx.lifecycle", name ="lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+billing = { module = "com.android.billingclient:billing", version.ref = "billing" }
+billing-ktx = { module = "com.android.billingclient:billing-ktx", version.ref = "billing" }
+compose-bom =  { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
+compose-runtime =  { group = "androidx.compose.runtime", name = "runtime" }
+compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose-ui" }
+compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose-ui" }
+compose-foundation-layout = { module = "androidx.compose.foundation:foundation-layout", version.ref = "compose-ui" }
+compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+compose-material3-window-size = { group = "androidx.compose.material3", name = "material3-window-size-class" }
+activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
+lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle-viewmodel" }
+lifecycle-runtime-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycle-viewmodel" }
 
 [plugins]
-android-application = { id = "com.android.application", version.ref = "agp" }
+android-application = { id = "com.android.application", version.ref = "gradle" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-
+jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
+firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "crashlytics-version" }

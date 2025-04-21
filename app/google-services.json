@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "534509152216",
+    "firebase_url": "https://chatapp-3d1d1.firebaseio.com",
+    "project_id": "chatapp-3d1d1",
+    "storage_bucket": "chatapp-3d1d1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:534509152216:android:a7d0b5e33435c8092a34ad",
+        "android_client_info": {
+          "package_name": "com.vnhanh.androidbilling"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgdk8W-xpW37wz6ZZDBppzxu6Th2X9WSQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:534509152216:android:dc1ac862ce1a48972a34ad",
+        "android_client_info": {
+          "package_name": "com.vnhanh.androidbilling.debug"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgdk8W-xpW37wz6ZZDBppzxu6Th2X9WSQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
