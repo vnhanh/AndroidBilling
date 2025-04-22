@@ -71,48 +71,21 @@ class AppBillingClient private constructor() : PurchasesUpdatedListener, Billing
     suspend fun purchase(sku: String, activity: FragmentActivity, callback: PurchasesUpdatedListener) {
         purchasesUpdatedListener = callback
 
-//        val params = SkuDetailsParams.newBuilder()
-//        val type = BillingClient.SkuType.SUBS
-//        params.setSkusList(listOf(sku)).setType(type)
-//        
-//        val skuDetails: SkuDetailsResult = billingClient?.querySkuDetails(params.build()) ?: return
-//        val (billingResult: BillingResult, detailsList: List<SkuDetails>?) = skuDetails
-//        
-//        Log.d("TestAlan", "skuDetails: $skuDetails")
-//        if (billingResult.responseCode == BillingClient.BillingResponseCode.OK && !detailsList.isNullOrEmpty()) {
-//            val flowParams = BillingFlowParams.newBuilder()
-//                .setSkuDetails(detailsList.first())
-//                .build()
-//            billingClient?.launchBillingFlow(activity, flowParams)
-//        } else if (billingResult.responseCode != BillingClient.BillingResponseCode.USER_CANCELED) {
-//            purchasesUpdatedListener?.onFailure("Purchase failed. Please contact support for help")
-//        }
-        val params = QueryPurchasesParams.newBuilder()
-            .setProductType(BillingClient.ProductType.SUBS) // Use SUBS for subscriptions
-            .build()
+        val params = SkuDetailsParams.newBuilder()
+        val type = BillingClient.SkuType.SUBS
+        params.setSkusList(listOf(sku)).setType(type)
 
-        billingClient?.queryPurchasesAsync(params, object : PurchasesResponseListener{
-            override fun onQueryPurchasesResponse(p0: BillingResult, p1: MutableList<Purchase>) {
-                
-            }
+        val skuDetails: SkuDetailsResult = billingClient?.querySkuDetails(params.build()) ?: return
+        val (billingResult: BillingResult, detailsList: List<SkuDetails>?) = skuDetails
 
-        })
-
-        if (purchasesResult.billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
-            val activeSubscription = purchasesResult.purchasesList?.find { purchase ->
-                purchase.products.contains(subscriptionProductId) &&
-                        purchase.purchaseState == Purchase.PurchaseState.PURCHASED //Only handle purchased subscriptions
-            }
-
-            if (activeSubscription != null) {
-                onSubscriptionActive()
-            } else {
-                onSubscriptionInactive()
-            }
-        } else {
-            // Handle error querying purchases. The subscription status cannot be determined.
-            // You might want to log the error or inform the user.
-            onSubscriptionInactive() // Or handle as appropriate for your app.
+        Log.d("TestAlan", "skuDetails: $skuDetails")
+        if (billingResult.responseCode == BillingClient.BillingResponseCode.OK && !detailsList.isNullOrEmpty()) {
+            val flowParams = BillingFlowParams.newBuilder()
+                .setSkuDetails(detailsList.first())
+                .build()
+            billingClient?.launchBillingFlow(activity, flowParams)
+        } else if (billingResult.responseCode != BillingClient.BillingResponseCode.USER_CANCELED) {
+            purchasesUpdatedListener?.onFailure("Purchase failed. Please contact support for help")
         }
     }
     

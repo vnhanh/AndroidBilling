@@ -142,7 +142,8 @@ class MainActivity : FragmentActivity(), AppBillingClient.PurchasesUpdatedListen
                                     .clickable {
                                         lifecycleScope.launch {
                                             billingClient.purchase(
-                                                sku = "com.vnhanh.billing.yearly",
+//                                                sku = "com.vnhanh.billing.yearly",
+                                                sku = "com.alanvo.test.googlebilling.sub1",
                                                 activity = this@MainActivity,
                                                 callback = this@MainActivity,
                                             )
